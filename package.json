@@ -1,0 +1,29 @@
+{
+  "name": "webassembly",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/yesindex.js",
+  "scripts": {
+    "dev": "webpack server",
+    "build:wasm": "cargo build --target wasm32-unknown-unknown",
+    "build:bindgen": "wasm-bindgen target/wasm32-unknown-unknown/debug/webassembly.wasm --out-dir build",
+    "build": "npm run build:wasm && npm run build:bindgen && npx webpack"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@babel/preset-env": "^7.18.2",
+    "@babel/preset-react": "^7.17.12",
+    "babel-core": "^6.26.3",
+    "babel-loader": "^8.2.5",
+    "react": "^18.1.0",
+    "react-dom": "^18.1.0"
+  },
+  "devDependencies": {
+    "@wasm-tool/wasm-pack-plugin": "^1.6.0",
+    "html-webpack-plugin": "^5.5.0",
+    "webpack-cli": "^4.10.0",
+    "webpack-dev-server": "^4.9.2"
+  }
+}
